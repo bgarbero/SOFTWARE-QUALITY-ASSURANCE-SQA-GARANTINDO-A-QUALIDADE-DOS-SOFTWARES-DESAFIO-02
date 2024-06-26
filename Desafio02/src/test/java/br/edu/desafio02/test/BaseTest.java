@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class BaseTest {
     protected static WebDriver driver;
-    protected static final String URL_BASE = "file:///C:/Users/Bruno/Desktop/qa/controle-de-produtos/sistema/login.html";
+    protected static final String URL_LOGIN = "file:///C:/Users/Bruno/Desktop/qa/controle-de-produtos/sistema/login.html";
     protected static final String URL_CRUD = "file:///C:/Users/Bruno/Desktop/qa/controle-de-produtos/sistema/produtos.html?teste=123";
     protected static final String CAMINHO_DRIVER = "C:\\Users\\Bruno\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe";
 
@@ -17,8 +17,8 @@ public abstract class BaseTest {
         driver.manage().window().maximize();
     }
 
-   // @AfterClass
-    //public static void finalizarNavegador(){
-        //driver.quit();
-    //}
+//    @AfterClass
+//     public static void finalizarNavegador(){
+//         driver.quit();
+//     }
 }

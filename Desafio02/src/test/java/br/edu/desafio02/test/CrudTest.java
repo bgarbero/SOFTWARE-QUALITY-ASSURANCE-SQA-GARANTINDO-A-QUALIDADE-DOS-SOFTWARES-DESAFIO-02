@@ -2,22 +2,11 @@ package br.edu.desafio02.test;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.Keys;
 
 import br.edu.desafio02.page.CrudPage;
-import br.edu.desafio02.page.LoginPage;
 
 public class CrudTest extends BaseTest{
     private static CrudPage crud;
-    private static LoginPage login;
-
-    @BeforeClass
-    public static void login(){
-        login = new LoginPage(driver);
-        driver.get(URL_BASE);
-        login.campoEmail.sendKeys("admin@admin.com ");
-        login.campoSenha.sendKeys("admin@123" + Keys.ENTER);
-    }
 
     @BeforeClass
     public static void preparaAmbienteParaTestes(){
@@ -52,7 +41,7 @@ public class CrudTest extends BaseTest{
     }
 
     @Test
-    public void TC002_testaCadastrarProdutosComLetrasNoCampoValor(){
+    public void TC003_testaCadastrarProdutosComLetrasNoCampoValor(){
         driver.get(URL_CRUD);
         crud.botaoCriar.click();
         crud.botaoCriar.click();
@@ -66,7 +55,21 @@ public class CrudTest extends BaseTest{
     }
 
     @Test
-    public void TC002_testaCadastrarProdutosComCamposEmBranco(){
+    public void TC004_testaCadastrarProdutosComLetrasNoCampoCodigo(){
+        driver.get(URL_CRUD);
+        crud.botaoCriar.click();
+        crud.botaoCriar.click();
+        crud.codigo.sendKeys("ABC");
+        crud.nome.sendKeys("Celular");
+        crud.quantidade.sendKeys("1");
+        crud.valor.sendKeys("100,00");
+        crud.data.sendKeys("25/06/2024");
+        crud.botaoSalvar.click();
+        crud.botaoSair.click();
+    }
+
+    @Test
+    public void TC005_testaCadastrarProdutosComCamposEmBranco(){
         driver.get(URL_CRUD);
         crud.botaoCriar.click();
         crud.botaoCriar.click();
@@ -74,7 +77,7 @@ public class CrudTest extends BaseTest{
     }
 
     @Test
-    public void TC002_testaCampoData(){
+    public void TC006_testaCampoData(){
         driver.get(URL_CRUD);
         crud.botaoCriar.click();
         crud.botaoCriar.click();
@@ -85,6 +88,42 @@ public class CrudTest extends BaseTest{
         crud.data.sendKeys("25/06/1908");
         crud.botaoSalvar.click();
         crud.botaoSair.click();
+    }
+
+    @Test
+    public void TC007_testaBotaoExcluir(){
+        driver.get(URL_CRUD);
+        crud.botaoCriar.click();
+        crud.botaoCriar.click();
+        crud.codigo.sendKeys("001");
+        crud.nome.sendKeys("Celular");
+        crud.quantidade.sendKeys("1");
+        crud.valor.sendKeys("100,00");
+        crud.data.sendKeys("26/06/2024");
+        crud.botaoSalvar.click();
+        crud.botaoSair.click();
+        crud.botaoExcluir.click();
+    }
+
+    @Test
+    public void TC008_testaBotaoEditar(){
+        driver.get(URL_CRUD);
+        crud.botaoCriar.click();
+        crud.botaoCriar.click();
+        crud.codigo.sendKeys("001");
+        crud.nome.sendKeys("Celular");
+        crud.quantidade.sendKeys("1");
+        crud.valor.sendKeys("100,00");
+        crud.data.sendKeys("26/06/2024");
+        crud.botaoSalvar.click();
+        crud.botaoSair.click();
+        crud.botaoEditar.click();
+    }
+
+    @Test
+    public void TC009_testaBotaoVoltar(){
+        driver.get(URL_CRUD);
+        crud.botaoVoltar.click();
     }
     
 }

@@ -28,6 +28,13 @@ public class CrudPage extends BasePage{
     public WebElement botaoSalvar;
     @FindBy(id = "btn-sair")
     public WebElement botaoSair;
+    @FindBy(css = "body > div > div:nth-child(2) > table > tbody > tr > td:nth-child(6) > button:nth-child(2)")
+    public WebElement botaoExcluir;
+    @FindBy(css = "body > div > div:nth-child(2) > table > tbody > tr > td:nth-child(6) > button:nth-child(1)")
+    public WebElement botaoEditar;
+    @FindBy(css = "#collapsibleNavbar > ul > li > a")
+    public WebElement botaoVoltar;
+
 
 
     public CrudPage(WebDriver driver) {
