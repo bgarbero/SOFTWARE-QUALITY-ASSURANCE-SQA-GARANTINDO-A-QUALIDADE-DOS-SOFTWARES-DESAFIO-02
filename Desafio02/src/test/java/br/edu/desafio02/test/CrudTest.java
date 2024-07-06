@@ -85,7 +85,7 @@ public class CrudTest extends BaseTest{
         crud.nome.sendKeys("Celular");
         crud.quantidade.sendKeys("1");
         crud.valor.sendKeys("100,00");
-        crud.data.sendKeys("25/06/1908");
+        crud.data.sendKeys("25/06/2080");
         crud.botaoSalvar.click();
         crud.botaoSair.click();
     }
